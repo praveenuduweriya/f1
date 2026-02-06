@@ -77,8 +77,8 @@
     align-items: center;
     will-change: transform;
     /* Mask is set via JS */
-    -webkit-mask-image: radial-gradient(circle var(--cursor-size) at 0px 0px, black 0%, transparent 100%);
-    mask-image: radial-gradient(circle var(--cursor-size) at 0px 0px, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle var(--cursor-size) at 0px 0px, black 0%, black 75%, transparent 100%);
+    mask-image: radial-gradient(circle var(--cursor-size) at 0px 0px, black 0%, black 75%, transparent 100%);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     pointer-events: none;
@@ -522,9 +522,9 @@
     cursor.style.left = cursorX + 'px';
     cursor.style.top = cursorY + 'px';
 
-    // Update reveal mask
-    revealLayer.style.maskImage = `radial-gradient(circle 110px at ${cursorX}px ${cursorY}px, black 0%, transparent 100%)`;
-    revealLayer.style.webkitMaskImage = `radial-gradient(circle 110px at ${cursorX}px ${cursorY}px, black 0%, transparent 100%)`;
+    // Update reveal mask — sharp, fully opaque center with a tight fade at the edge
+    revealLayer.style.maskImage = `radial-gradient(circle 120px at ${cursorX}px ${cursorY}px, black 0%, black 75%, transparent 100%)`;
+    revealLayer.style.webkitMaskImage = `radial-gradient(circle 120px at ${cursorX}px ${cursorY}px, black 0%, black 75%, transparent 100%)`;
 
     // Echoes on fast movement
     const now = Date.now();
